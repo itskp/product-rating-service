@@ -1,0 +1,23 @@
+DATABASE SETUP ( mongodb )
+
+mongod --dbpath=/path/to/db
+
+create user
+
+use admin
+
+db.createUser(
+{ 
+    user: "kapil-admin",
+    pwd: "dark-knight",
+    roles: [
+        { role: "readWrite", db: "casaone"},
+        { role: "dbAdmin", db: "casaone"}
+    ]
+})
+
+db.auth("kapil-admin", "dark-knight")
+
+db.getUsers()
+
+mongod --auth --dbpath=/path/to/db
