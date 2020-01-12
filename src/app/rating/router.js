@@ -1,4 +1,5 @@
-const handler = require('./handler')
+const util = require('../../utils')
+const handler = util.wrapHandlers(require('./handler'))
 const koaRouter = require('koa-router')
 
 const moduleName = 'rating'
@@ -7,6 +8,7 @@ const router = new koaRouter({
     prefix: '/rating'
 })
 
-router.get('/add', handler.addRating)
+router.post('/', handler.getRatings)
+router.post('/add', handler.addRating)
 
 module.exports = router

@@ -1,0 +1,52 @@
+[
+    {
+        "userId": "U101",
+        "productId": "P101",
+        "rating": 1
+    },
+    {
+        "userId": "U102",
+        "productId": "P101",
+        "rating": 2
+    },
+    {
+        "userId": "U103",
+        "productId": "P101",
+        "rating": 3
+    },
+    {
+        "userId": "U104",
+        "productId": "P101",
+        "rating": 4
+    },
+    {
+        "userId": "U105",
+        "productId": "P101",
+        "rating": 5
+    },
+    {
+        "userId": "U101",
+        "productId": "P102",
+        "rating": 3
+    },
+    {
+        "userId": "U102",
+        "productId": "P102",
+        "rating": 3
+    },
+    {
+        "userId": "U103",
+        "productId": "P102",
+        "rating": 3
+    },
+    {
+        "userId": "U104",
+        "productId": "P102",
+        "rating": 3
+    },
+    {
+        "userId": "U105",
+        "productId": "P102",
+        "rating": 3
+    }
+]

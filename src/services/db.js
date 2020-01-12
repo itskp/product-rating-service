@@ -37,6 +37,47 @@ const productSchema = new mongoose.Schema({
     timestamps: true
 })
 
+const userSchema = new mongoose.Schema({
+    name: {
+        type: String,
+        required: true
+    },
+    userId: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    category: {
+        type: String,
+        default: 'customer'
+    }
+}, {
+    versionKey: false,
+    timestamps: true
+})
+
+const ratingSchema = new mongoose.Schema({
+    userId: {
+        type: String,
+        required: true
+    },
+    productId: {
+        type: String,
+        required: true
+    },
+    rating: {
+        type: Number,
+        min: 1,
+        max: 5,
+        default: 0
+    }
+}, {
+    versionKey: false,
+    timestamps: true
+})
+
 module.exports = {
-    products: mongoose.model('products', productSchema)
+    products: mongoose.model('products', productSchema),
+    users: mongoose.model('users', userSchema),
+    ratings: mongoose.model('ratings', ratingSchema)
 }
