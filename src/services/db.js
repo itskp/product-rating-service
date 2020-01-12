@@ -22,6 +22,15 @@ const productSchema = new mongoose.Schema({
     name: {
         type: String,
         required: true
+    },
+    productId: {
+        type: String,
+        required: true,
+        unique: true
+    },
+    category: {
+        type: String,
+        default: 'furniture'
     }
 }, {
     versionKey: false,
