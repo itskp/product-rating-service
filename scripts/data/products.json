@@ -1,0 +1,22 @@
+[
+    {
+        "productId": "100",
+        "name": "Arm Chairs"
+    },
+    {
+        "productId": "101",
+        "name": "Rocking Chairs"
+    },
+    {
+        "productId": "102",
+        "name": "Lounge Chairs"
+    },
+    {
+        "productId": "103",
+        "name": "Iconic Chairs"
+    },
+    {
+        "productId": "104",
+        "name": "Slipper Chairs"
+    }
+]
