@@ -3,7 +3,8 @@ const _ = require('ramda')
 const wrapHandler = (handler) => {
     return async (ctx, next) => {
         try {
-            const response = await handler(ctx.request.body, _.merge(ctx, {}), next)
+            const body = ctx.request.method === 'GET' ? ctx.request.query: ctx.request.body
+            const response = await handler(body, _.merge(ctx, {}), next)
             if (response.redirect)
                 ctx.redirect(response.redirect)
             for (const key in response)
@@ -22,6 +23,23 @@ const wrapHandlers = (module) => _.fromPairs(
     _.map(([name, fun]) => [name, wrapHandler(fun)],
         _.toPairs(module)))
 
+
+const wrapSchema = (schema) => {
+    return async (ctx, next) => {
+        try {
+            const body = ctx.request.method === 'GET' ? ctx.request.query: ctx.request.body
+            await schema.validateAsync(body)
+            return next()
+        } catch (err) {
+            console.log(err)
+            ctx.status = 500
+            ctx.body = {
+                error: err.details
+            }
+        }
+    }
+}
+
 const httpResponse = (status, body) => {
     return {
         status,
@@ -37,5 +55,6 @@ const generateRandomString = async (length = 20) => {
 module.exports = {
     wrapHandlers,
     httpResponse,
-    generateRandomString
+    generateRandomString,
+    wrapSchema
 }
