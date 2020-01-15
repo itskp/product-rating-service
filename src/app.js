@@ -10,10 +10,11 @@ const task = require('./jobs')
 const {
     responseTimestamp
 } = require('./middlewares')
+const config = require('./configs')
 
 const init = () => {
     const app = new koa()
-    const redis = new redisServer(6379)
+    const redis = new redisServer(config.REDIS.REDIS_PORT)
 
     app.use(kcors())
     app.use(compress({
@@ -29,7 +30,7 @@ const init = () => {
     app.use(router.routes())
     app.use(router.allowedMethods())
 
-    app.listen(3000)
+    app.listen(config.SERVER.PORT)
     console.log('server listening on port 3000')
 
     redis.open().then(() => {
