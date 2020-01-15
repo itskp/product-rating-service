@@ -5,6 +5,9 @@ const kcors = require('kcors')
 const router = require('./app/router')
 const redisServer = require('redis-server')
 const task = require('./jobs')
+const {
+    responseTimestamp
+} = require('./middlewares')
 
 const init = () => {
     const app = new koa()
@@ -15,12 +18,7 @@ const init = () => {
         level: 3
     }))
 
-    app.use(async (ctx, next) => {
-        const start = Date.now()
-        await next()
-        const ms = Date.now() - start
-        ctx.set('X-Response-Time', `${ms}ms`)
-    })
+    app.use(responseTimestamp)
 
     app.use(koaBody({
         multipart: true
