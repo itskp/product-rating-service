@@ -21,3 +21,15 @@ db.auth("kapil-admin", "dark-knight")
 db.getUsers()
 
 mongod --auth --dbpath=/path/to/db
+
+
+steps to install redis
+
+wget http://download.redis.io/redis-stable.tar.gz
+tar xvzf redis-stable.tar.gz
+cd redis-stable
+make
+sudo make install
+redis-server // start redis server on port 6379
+
+
