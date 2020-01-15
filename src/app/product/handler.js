@@ -13,7 +13,7 @@ const addProduct = async ({
         _id: 1
     })
 
-    if(product) {
+    if (product) {
         return httpResponse(400, {
             error: 'product exists'
         })
@@ -25,7 +25,7 @@ const addProduct = async ({
     })
 
     return httpResponse(200, {
-        'success': true
+        success: true
     })
 }
 

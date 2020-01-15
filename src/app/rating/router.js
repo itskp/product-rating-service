@@ -3,8 +3,7 @@ const handler = util.wrapHandlers(require('./handler'))
 const koaRouter = require('koa-router')
 const schema = require('./schema')
 
-const moduleName = 'rating'
-
+// eslint-disable-next-line new-cap
 const router = new koaRouter({
     prefix: '/products/ratings'
 })

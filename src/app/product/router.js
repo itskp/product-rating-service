@@ -4,8 +4,7 @@ const schema = require('./schema')
 
 const koaRouter = require('koa-router')
 
-const moduleName = 'product'
-
+// eslint-disable-next-line new-cap
 const router = new koaRouter({
     prefix: '/products'
 })

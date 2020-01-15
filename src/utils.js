@@ -1,14 +1,17 @@
 const _ = require('ramda')
+const crypto = require('crypto')
 
 const wrapHandler = (handler) => {
     return async (ctx, next) => {
         try {
-            const body = ctx.request.method === 'GET' ? ctx.request.query: ctx.request.body
+            const body = ctx.request.method === 'GET' ? ctx.request.query : ctx.request.body
             const response = await handler(body, _.merge(ctx, {}), next)
-            if (response.redirect)
+            if (response.redirect) {
                 ctx.redirect(response.redirect)
-            for (const key in response)
+            }
+            for (const key in response) {
                 ctx[key] = response[key]
+            }
         } catch (err) {
             console.log(err)
             ctx.status = 500
@@ -22,7 +25,6 @@ const wrapHandler = (handler) => {
 const wrapHandlers = (module) => _.fromPairs(
     _.map(([name, fun]) => [name, wrapHandler(fun)],
         _.toPairs(module)))
-
 
 const wrapSchema = (schema) => {
     return async (ctx, next) => {
@@ -43,7 +45,7 @@ const wrapSchema = (schema) => {
 const httpResponse = (status, body) => {
     return {
         status,
-        body: body ? body : {}
+        body: body || {}
     }
 }
 

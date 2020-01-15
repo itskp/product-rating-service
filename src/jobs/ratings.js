@@ -1,7 +1,6 @@
 const db = require('../services/db')
 const redis = require('../services/redis')
 const cron = require('../services/cron')
-const util = require('util')
 const _ = require('ramda')
 
 const syncRatings = async () => {
@@ -15,11 +14,11 @@ const syncRatings = async () => {
         const ratingbyGroup = await db.ratings.aggregate([
             {
                 $match: {
-                    "productId": productId
-                },
+                    productId: productId
+                }
             }, {
                 $group: {
-                    _id: "$rating",
+                    _id: '$rating',
                     count: {
                         $sum: 1
                     }
@@ -36,7 +35,7 @@ const syncRatings = async () => {
         }, ratingbyGroup)
 
         const average = _.sum(_.map((rating) => rating.value, ratings)) / 5.0
-        
+
         redis.set(productId, JSON.stringify({
             ratings,
             average

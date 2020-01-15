@@ -9,7 +9,6 @@ const addRating = async ({
     userId,
     rating
 }) => {
-
     const product = await db.ratings.findOne({
         productId,
         userId
@@ -22,7 +21,6 @@ const addRating = async ({
             rating
         })
         return httpResponse(200, {
-            "message": "success"
         })
     }
 
@@ -30,7 +28,6 @@ const addRating = async ({
     product.save()
 
     return httpResponse(200, {
-        "message": "success"
     })
 }
 
@@ -40,11 +37,11 @@ const getRatings = async ({
     const ratingbyGroup = await db.ratings.aggregate([
         {
             $match: {
-                "productId": productId
-            },
+                productId: productId
+            }
         }, {
             $group: {
-                _id: "$rating",
+                _id: '$rating',
                 count: {
                     $sum: 1
                 }
@@ -59,11 +56,10 @@ const getRatings = async ({
             value: rating._id * rating.count
         }
     }, ratingbyGroup)
-    
+
     const average = _.sum(_.map((rating) => rating.value, ratings)) / 5.0
 
     return httpResponse(200, {
-        "message": "success",
         result: ratings,
         average
     })
