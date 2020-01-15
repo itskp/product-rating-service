@@ -7,9 +7,9 @@ const koaRouter = require('koa-router')
 const moduleName = 'user'
 
 const router = new koaRouter({
-    prefix: '/user'
+    prefix: '/users'
 })
 
-router.post('/addCustomer', util.wrapSchema(schema.addCustomer), handler.addCustomer)
+router.post('/', util.wrapSchema(schema.addCustomer), handler.addCustomer)
 
 module.exports = router

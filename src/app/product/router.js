@@ -7,9 +7,9 @@ const koaRouter = require('koa-router')
 const moduleName = 'product'
 
 const router = new koaRouter({
-    prefix: '/product'
+    prefix: '/products'
 })
 
-router.post('/add', util.wrapSchema(schema.addProduct), handler.addProduct)
+router.post('/', util.wrapSchema(schema.addProduct), handler.addProduct)
 
 module.exports = router

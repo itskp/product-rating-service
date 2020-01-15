@@ -6,10 +6,10 @@ const schema = require('./schema')
 const moduleName = 'rating'
 
 const router = new koaRouter({
-    prefix: '/rating'
+    prefix: '/products/ratings'
 })
 
-router.get('/', handler.getRatings)
-router.post('/add', util.wrapSchema(schema.addRating), handler.addRating)
+router.get('/', util.wrapSchema(schema.getRatings), handler.getRatings)
+router.post('/', util.wrapSchema(schema.addRating), handler.addRating)
 
 module.exports = router
