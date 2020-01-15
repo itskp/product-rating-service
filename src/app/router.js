@@ -1,10 +1,11 @@
+'use strict'
+
 const koaRouter = require('koa-router')
 
 const productRoutes = require('./product/router')
 const ratingRoutes = require('./rating/router')
 const userRoutes = require('./user/router')
 
-// eslint-disable-next-line new-cap
 const router = new koaRouter()
 
 router.use(productRoutes.routes(), productRoutes.allowedMethods())

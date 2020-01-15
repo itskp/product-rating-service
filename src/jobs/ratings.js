@@ -1,3 +1,5 @@
+'use strict'
+
 const db = require('../services/db')
 const redis = require('../services/redis')
 const cron = require('../services/cron')

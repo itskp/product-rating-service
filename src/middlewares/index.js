@@ -1,3 +1,5 @@
+'use strict'
+
 const responseTimestamp = async (ctx, next) => {
     const start = Date.now()
     await next()

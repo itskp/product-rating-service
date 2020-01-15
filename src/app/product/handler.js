@@ -1,3 +1,5 @@
+'use strict'
+
 const db = require('../../services/db')
 const {
     httpResponse

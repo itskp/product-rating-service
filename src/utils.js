@@ -1,3 +1,5 @@
+'use strict'
+
 const _ = require('ramda')
 const crypto = require('crypto')
 
@@ -29,7 +31,7 @@ const wrapHandlers = (module) => _.fromPairs(
 const wrapSchema = (schema) => {
     return async (ctx, next) => {
         try {
-            const body = ctx.request.method === 'GET' ? ctx.request.query: ctx.request.body
+            const body = ctx.request.method === 'GET' ? ctx.request.query : ctx.request.body
             await schema.validateAsync(body)
             return next()
         } catch (err) {

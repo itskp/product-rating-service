@@ -1,3 +1,5 @@
+'use strict'
+
 const db = require('../../services/db')
 const {
     httpResponse
@@ -13,7 +15,7 @@ const addCustomer = async ({
         _id: 1
     })
 
-    if(user) {
+    if (user) {
         return httpResponse(400, {
             error: 'user exists'
         })
@@ -24,9 +26,7 @@ const addCustomer = async ({
         name
     })
 
-    return httpResponse(200, {
-        'success': true
-    })
+    return httpResponse(200, {})
 }
 
 module.exports = {

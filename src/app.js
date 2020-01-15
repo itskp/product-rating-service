@@ -1,3 +1,5 @@
+'use strict'
+
 const koa = require('koa')
 const compress = require('koa-compress')
 const koaBody = require('koa-body')

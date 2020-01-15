@@ -1,3 +1,5 @@
+'use strict'
+
 const cron = require('cron')
 
 const initJob = (cronInterval, syncHandler) => {

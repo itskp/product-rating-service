@@ -1,3 +1,5 @@
+'use strict'
+
 const config = {
     SERVER: {
         PORT: process.env.PORT || 3000,
