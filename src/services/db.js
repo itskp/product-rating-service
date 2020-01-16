@@ -3,11 +3,6 @@
 const mongoose = require('mongoose')
 
 mongoose.connect('mongodb://localhost/casaone', {
-    // user: 'kapil-admin',
-    // pass: 'dark-knight',
-    // auth: {
-    //     authdb: 'admin'
-    // },
     config: {
         autoIndex: false
     },

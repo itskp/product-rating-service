@@ -7,16 +7,32 @@ create user
 use admin
 
 db.createUser(
+{
+    user: "casaone-admin",
+    pwd: "dark-knight",
+    roles: [
+        { role: "userAdminAnyDatabase", db: "admin" }
+    ] 
+})
+
+db.auth('casaone-admin', 'dark-knight')
+
+use admin
+
+db.createUser(
 { 
-    user: "kapil-admin",
+    user: "casaone",
     pwd: "dark-knight",
     roles: [
         { role: "readWrite", db: "casaone"},
-        { role: "dbAdmin", db: "casaone"}
+        { role: "readWrite", db: "casaone-test"},
+        { role: "dbAdmin", db: "casaone"},
+        { role: "dbAdmin", db: "casaone-test"}
     ]
 })
+db.createUser( { user: "epass", pwd: "redPanda605", roles: [ { role: "readWrite", db: "epass" }, { role: "dbAdmin", db: "epass" }, { role: "readWrite", db: "epass-test" }, { role: "dbAdmin", db: "epass-test" }, ] } )
 
-db.auth("kapil-admin", "dark-knight")
+db.auth("casaone-admin", "dark-knight")
 
 db.getUsers()
 
