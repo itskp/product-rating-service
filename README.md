@@ -69,7 +69,8 @@ MongoDB setup
 
 ----
 #### System Architecture
-![alt text](https://raw.githubusercontent.com/itskp/product-rating-service/master/assignment2.png)
+![Product Rating System Architecture](assignment2.png)
+
 #### Project Assumptions and Explanation
 - Existing users has rented all the available products.
 - No Authentication for users.
