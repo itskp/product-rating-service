@@ -30,7 +30,6 @@ db.createUser(
         { role: "dbAdmin", db: "casaone-test"}
     ]
 })
-db.createUser( { user: "epass", pwd: "redPanda605", roles: [ { role: "readWrite", db: "epass" }, { role: "dbAdmin", db: "epass" }, { role: "readWrite", db: "epass-test" }, { role: "dbAdmin", db: "epass-test" }, ] } )
 
 db.auth("casaone-admin", "dark-knight")
 
