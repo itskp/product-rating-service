@@ -1,9 +1,9 @@
 # Assignment 1
-## Product Rating Service Module
+## Product Variable Growth
 [Documentation](assignment1.md)
 
 ----
 # Assignment 2
-## Product Variable Growth
+## Product Rating Service Module
 
 [Documentation](assignment2.md)
